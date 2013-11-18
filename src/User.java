@@ -6,8 +6,10 @@ import java.util.Date;
 import java.util.Locale;
 import java.io.Serializable;
 
-public class User 
+public class User implements Serializable
 {
+	private static final long serialVersionUID = -3220093998931430519L;
+
 	private long id;
 	
 	private String username;
@@ -16,6 +18,7 @@ public class User
 	private Record record;
 	private ArrayList<OpponentRecord> opponentRecords;
 	private String IPAddress;
+	private ArrayList<Invitation> invitations;
 	
 	public User(String username, String password, String email)
 	{
@@ -24,7 +27,19 @@ public class User
 		this.email = email;
 		record = new Record();
 		opponentRecords = new ArrayList<OpponentRecord>();
+		invitations = new ArrayList<Invitation>();
 		
+	}
+	
+	public String toString()
+	{
+		StringBuilder b = new StringBuilder();
+		b.append("Username: "+username+"\n");
+		b.append("password: "+password+"\n");
+		b.append("email: "+email+"\n");
+		b.append("ip: "+IPAddress+"\n");
+		
+		return b.toString();
 	}
 	
 	public String getIP()
@@ -106,5 +121,10 @@ public class User
 			}
 		}
 		return opponentData;
+	}
+	
+	public ArrayList<Invitation> getInvitations()
+	{
+		return invitations;
 	}
 }

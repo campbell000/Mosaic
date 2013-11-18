@@ -9,8 +9,9 @@ import java.util.Date;
 import java.util.Locale;
 import java.io.Serializable;
 
-public class OpponentRecord extends Record
+public class OpponentRecord extends Record implements Serializable
 {
+	private static final long serialVersionUID = 7965958213151418104L;
 	private String opponentName;
 	private Date lastPlayedOn;
 	

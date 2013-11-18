@@ -6,8 +6,13 @@ import java.util.Date;
 import java.util.Locale;
 import java.io.Serializable;
 
-public class Record 
+public class Record implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8491092862577733875L;
+
 	private long id;
 	
 	protected int wins;

@@ -259,7 +259,12 @@ public class LoginScreenGui extends JFrame
 				String verifyEmail = verifyEmailField.getText();
 				if (verifyInfo(username, password, email, verifyEmail))
 				{
-					createAccount();
+					try {
+						createAccount(username, password, email);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					createAccount.dispatchEvent(new WindowEvent(createAccount, WindowEvent.WINDOW_CLOSING));
 				}
 			}
@@ -286,8 +291,11 @@ public class LoginScreenGui extends JFrame
 		createAccount.setLocationRelativeTo(null);
 	}
 	
-	private void createAccount()
+	private void createAccount(String user, String password, String email) throws Exception
 	{
+		User u = new User(user, password, email);
+		DatabaseHelper dbh = new DatabaseHelper();
+		dbh.addUser(u);
 		System.out.println("createAccount: not Implemented");
 		JOptionPane.showMessageDialog(null, "Account created!");
 	}

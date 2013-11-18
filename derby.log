@@ -1,0 +1,19 @@
+----------------------------------------------------------------
+Sun Nov 17 20:44:08 EST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0142-68e1-0b15-000000a8ae48 
+on database directory C:\Users\Alex Campbell\Documents\GitHub\Mosaic\MosaicDb with class loader sun.misc.Launcher$AppClassLoader@107077e 
+Loaded from file:/C:/Users/Alex%20Campbell/Documents/GitHub/Mosaic/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_45-b18
+user.dir=C:\Users\Alex Campbell\Documents\GitHub\Mosaic
+os.name=Windows 7
+os.arch=x86
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sun Nov 17 20:44:09 EST 2013: Shutting down Derby engine
+----------------------------------------------------------------
+Sun Nov 17 20:44:09 EST 2013:
+Shutting down instance a816c00e-0142-68e1-0b15-000000a8ae48 on database directory C:\Users\Alex Campbell\Documents\GitHub\Mosaic\MosaicDb with class loader sun.misc.Launcher$AppClassLoader@107077e 
+----------------------------------------------------------------
