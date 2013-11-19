@@ -8,16 +8,24 @@ import java.io.*;
 
 public class DictionarySystem {
 
+	HashSet dictionary = new HashSet();
 	protected DictionarySystem(){
 		
 		try {
 			Scanner dScan = new Scanner(new File("enable1.txt"), "UTF-8");
 			while(dScan.hasNext()){
-			System.out.println(dScan.next());}
+				dictionary.add(dScan.next());
+			}
 		} 
 		catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+	}
+	
+	protected boolean isAWord(String word){
+		return dictionary.contains(word);
 	}
 }

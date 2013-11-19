@@ -13,6 +13,6 @@ public class TestMosaic {
 		//System.out.println(board.getSpaces(0,0,0,14));
 		
 		GameSystem game = new GameSystem();
-	
+		game.placeWord("psychology", 0,0,0,0);
 	}
 }

@@ -33,7 +33,7 @@ public class GameSystem {
 	
 	protected void placeWord(String word, int startR, int startC, int endC, int endR){
 		//Need string of words trying to be placed, starting indicies and ending indicies
-		
+		System.out.println(dictionary.isAWord(word));
 		
 	}
 }
