@@ -221,7 +221,7 @@ public class TileSystem {
 		
 	}
 	
-	public Tile swapTile(){
+	public Tile swapTile(Tile n){
 		
 			// NEED TO ADD BACK INTO LIST
 			//Random Generator mimics randomness of drawing from bag
@@ -234,6 +234,10 @@ public class TileSystem {
 			tileBag.remove(drawIndex);
 			
 			//returns drawn tile
+			
+			//return the drawn tile back into tilebag
+			tileBag.add(n);
+			
 			return drawn;
 	}
 	

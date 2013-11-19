@@ -8,9 +8,11 @@ public class TestMosaic {
 		for(int i = 0; i < 5; i++){
 		System.out.println(test.drawTile());}*/
 		
-		Board board = new Board();
+		//Board board = new Board();
 		
-		System.out.println(board.getSpaces(0,0,0,14));
+		//System.out.println(board.getSpaces(0,0,0,14));
+		
+		GameSystem game = new GameSystem();
 	
 	}
 }

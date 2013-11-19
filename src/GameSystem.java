@@ -18,6 +18,7 @@ public class GameSystem {
 		gameBoard = new Board();
 		scoring = new ScoringSystem();
 		doubleSystem = new DoublingSystem();
+		dictionary = new DictionarySystem();
 		gameValue = 1;
 		
 	}
@@ -27,6 +28,12 @@ public class GameSystem {
 		
 		gameValue = doubleSystem.doubleValue(gameValue);
 		return gameValue;
+		
+	}
+	
+	protected void placeWord(String word, int startR, int startC, int endC, int endR){
+		//Need string of words trying to be placed, starting indicies and ending indicies
+		
 		
 	}
 }
