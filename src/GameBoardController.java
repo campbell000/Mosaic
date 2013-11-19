@@ -117,7 +117,22 @@ public class GameBoardController {
 	class ForfeitListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent loginAttempt) {
-			// TODO Auto-generated method stub
+			int userSelection;
+
+			userSelection = JOptionPane.showConfirmDialog(null,
+					"You automatically lose this game if you forfeit!",
+					"Are you sure you want to Forfiet?",
+					JOptionPane.YES_NO_OPTION);
+
+			// ALEX WAS HERE
+			// when ok is selected, close all windows, and open a game window
+			if (userSelection == 0) {
+				// HomeScreenControllers homeScreen = new
+				// HomeScreenControllers(new Home_Screen());
+				Home_Screen homescreen = new Home_Screen();
+				gameBoard.dispose();
+
+			}
 		}
 	}
 

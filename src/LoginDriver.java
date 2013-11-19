@@ -1,7 +1,6 @@
 
 
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 public class LoginDriver {
 	
@@ -14,7 +13,8 @@ public class LoginDriver {
 		
 		
 		
-		LoginScreenGui login = new LoginScreenGui();
+		LoginScreenController login = new LoginScreenController(
+				new LoginScreenGui());
 		
 		//User user = new User();
 		//UserStatsScreenGui statScreen = new UserStatsScreenGui(user);

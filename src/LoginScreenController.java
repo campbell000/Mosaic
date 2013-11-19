@@ -10,15 +10,17 @@ import java.awt.event.ActionListener;
 
 public class LoginScreenController {
 
-	private LoginScreenGui loginScreen;
+	private final LoginScreenGui loginScreen;
 
-	public GameBoardController(LoginScreenGui loginScreen){
+	public LoginScreenController(LoginScreenGui loginScreen){
 		this.loginScreen = loginScreen;
 		
+		/**
 		this.loginScreen.addLoginListener( new LoginListener());
 		this.loginScreen.addQuitListener(new QuitListener()):
 		this.loginScreen.addSignUpListener(new SignUpListener());
 		this.loginScreen.addRememberUserNameListener(new RememberUserNameListener());
+		*/
 		
 	}
 

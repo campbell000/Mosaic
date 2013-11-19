@@ -18,9 +18,9 @@ public class GuiMain {
 	 * 
 	 */
 	public static void main(String[] args) {
-		GameBoardInstance test = new GameBoardInstance();
+		GameBoardController test = new GameBoardController(
+				new GameBoardInstance());
 
-		System.out.println("Yo");
 	}
 
 }
