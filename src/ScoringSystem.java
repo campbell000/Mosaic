@@ -39,6 +39,7 @@ public class ScoringSystem {
 						wordActions.add(act);
 				}
 				else
+					System.out.println(temp.getTile());
 					score += temp.getTile().getValue();
 			}
 			
