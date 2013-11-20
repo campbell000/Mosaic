@@ -22,7 +22,10 @@ public class Action {
 		//Multiplier defined by type
 		if(actionType == null)
 			return score;
-		int multiplier = Integer.parseInt(actionType.substring(0,0));
+		System.out.println(actionType);
+		String sub = actionType.charAt(0) + "";
+		System.out.println("Sub: " + sub);
+		int multiplier = Integer.parseInt(sub);
 		
 		int newScore = multiplier * score;
 		
