@@ -9,11 +9,13 @@ import java.util.*;
 public class TileSystem {
 	
 	ArrayList<Tile> tileBag = new ArrayList<Tile>();
+	ArrayList<Tile> hand = new ArrayList<Tile>();
 	Map<Character, Integer > alphabetValue = new HashMap<Character, Integer>();
 	
 	public TileSystem(){
 		
 		this.initAlphabet();
+		hand = drawTiles(7);
 		//TemporaryTile used for creation
 		Tile tempTile;
 		
@@ -313,5 +315,9 @@ public class TileSystem {
 		}
 		
 		return wordTiles;
+	}
+	
+	protected ArrayList<Tile> getHand(){
+		return hand;
 	}
 }
