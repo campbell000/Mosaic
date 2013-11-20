@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 public class GameBoardController {
 
 	private final GameBoardInstance gameBoard;
+	private User user;
 
 	/**
 	 * description sentence <code></code>
@@ -25,7 +26,8 @@ public class GameBoardController {
 	 * @param
 	 * @return
 	 */
-	public GameBoardController(GameBoardInstance gameBoard) {
+	public GameBoardController(GameBoardInstance gameBoard, User u) {
+		user = u;
 		this.gameBoard = gameBoard;
 
 		this.gameBoard.addDoubleListener(new DoubleListener());
@@ -129,7 +131,7 @@ public class GameBoardController {
 			if (userSelection == 0) {
 				// HomeScreenControllers homeScreen = new
 				// HomeScreenControllers(new Home_Screen());
-				Home_Screen homescreen = new Home_Screen();
+				Home_Screen homescreen = new Home_Screen(user);
 				gameBoard.dispose();
 
 			}

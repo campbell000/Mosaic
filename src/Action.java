@@ -14,6 +14,9 @@ public class Action {
 		actionType = type;
 	}
 	
+	protected String getType(){
+		return actionType.substring(1, 1);
+	}
 	protected int newValue(int score){
 		
 		//Multiplier defined by type

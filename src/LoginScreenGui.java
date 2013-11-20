@@ -31,6 +31,8 @@ public class LoginScreenGui extends JFrame
 	final String CREATE_ACCT_PATH = "media/temp2.png";
 	JTextField usernameField;
 	JTextField password;
+	User u = null;
+	DatabaseHelper dbh;
 	
 	public LoginScreenGui()
 	{
@@ -44,6 +46,8 @@ public class LoginScreenGui extends JFrame
 		contents.add(logo);
 		contents.add(screenInterface);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		dbh = new DatabaseHelper();
 	}
 	
 	private void initializeGUI()
@@ -99,7 +103,12 @@ public class LoginScreenGui extends JFrame
 			public void actionPerformed(ActionEvent actionEvent) {
 				String username = usernameField.getText();
 				String pass = password.getText();
-				login(username, pass);
+				try {
+					login(username, pass);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -162,21 +171,19 @@ public class LoginScreenGui extends JFrame
 	}
 	
 	//
-	private void login(String username, String password) 
+	private void login(String username, String password) throws Exception 
 	{
-		//Actually check data against server, create user object
-		//System.out.println("Login: Not implemented");
-		int userSelection;
-		
-		// ------------------------------------------------ ARMANDO WAS HERE -----------------------------------------------------------------------
-		userSelection = JOptionPane.showOptionDialog(null, "Hello, "+username+"!", "Login Welcome", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
-		
-		//when ok is selected
-		if(userSelection == 0)
-      {
-		   Home_Screen h = new Home_Screen();
+		User u = dbh.getUser(username, password);
+		if (u != null)
+		{
+			JOptionPane.showMessageDialog(null, "Hello, "+username+"!");
+			Home_Screen h = new Home_Screen(u);
 			this.setVisible(false);
-         this.dispose();       
+	        this.dispose();       
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "Sorry, the username and / or password is invalid!");
 		}
 		
 	}
@@ -259,14 +266,21 @@ public class LoginScreenGui extends JFrame
 				String verifyEmail = verifyEmailField.getText();
 				if (verifyInfo(username, password, email, verifyEmail))
 				{
-					try {
-						createAccount(username, password, email);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					createAccount.dispatchEvent(new WindowEvent(createAccount, WindowEvent.WINDOW_CLOSING));
+					try 
+					{
+						boolean created = createAccount(username, password, email);
+						if (created)
+						{
+							JOptionPane.showMessageDialog(null, "Account created!");
+							createAccount.dispatchEvent(new WindowEvent(createAccount, WindowEvent.WINDOW_CLOSING));
+						}
+						else
+							JOptionPane.showMessageDialog(null, "That username is already taken!");
+					} 
+					catch (Exception e) {e.printStackTrace();}
 				}
+				else
+					JOptionPane.showMessageDialog(null, "The email addresses must match!");
 			}
 		});
 		
@@ -291,13 +305,13 @@ public class LoginScreenGui extends JFrame
 		createAccount.setLocationRelativeTo(null);
 	}
 	
-	private void createAccount(String user, String password, String email) throws Exception
+	//Creates account if username is not taken
+	private boolean createAccount(String user, String password, String email) throws Exception
 	{
+		boolean success = false;
 		User u = new User(user, password, email);
-		DatabaseHelper dbh = new DatabaseHelper();
-		dbh.addUser(u);
-		System.out.println("createAccount: not Implemented");
-		JOptionPane.showMessageDialog(null, "Account created!");
+		success = dbh.addUser(u);
+		return success;
 	}
 	
 	private boolean verifyInfo(String username, String password, String email, String verifyEmail)

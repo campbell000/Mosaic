@@ -147,16 +147,16 @@ public class Board {
 	 * @param endR
 	 * @return
 	 */
-	protected ArrayList<Space> getSpaces(int startC, int startR, int endR, int endC){
+	protected ArrayList<Space> getSpaces(int startC, int startR, int endC, int endR){
 		
-		System.out.println("In getSpaces method!");
+		//System.out.println("In getSpaces method!");
 		ArrayList<Space> spaces = new ArrayList<Space>();
 		
-		System.out.println(gameBoard[0][0]);
+		//System.out.println(gameBoard[0][0]);
 		
 		//Vertical Word placement
 		if(startC == endC){
-			for( int j = startR ; j < endR; j++){
+			for( int j = startR ; j <= endR; j++){
 					
 				spaces.add(gameBoard[startC][j]);		
 					
@@ -165,7 +165,7 @@ public class Board {
 		
 		//Horizontal Word placement
 		else if(startR == endR){
-			for( int i = startC ; i < endC; i++){
+			for( int i = startC ; i <= endC; i++){
 	
 				spaces.add(gameBoard[i][startR]);		
 					
@@ -180,7 +180,33 @@ public class Board {
 		return spaces;
 	}
 	
-	protected void placeTiles(){
+	protected void placeTiles(ArrayList<Tile> tiles, int startC, int startR, int endC, int endR){
+		//System.out.println("made it to placeTiles");
+		Space tileSpace = new Space();
+		//Vertical Word Placement
+		if(startC == endC){
+			int row = startR;
+			while(row<=endR){
+				for (int i = 0; i < tiles.size(); i++){
+					//System.out.println("reached game board");
+					tileSpace = gameBoard[startC][row];
+					tileSpace.placeTile(tiles.get(i));
+					row++;
+				}
+			}
+		}
 		
+		//Horizontal Word Placement
+		if(startR == endR){
+			int col = startC;
+			while(col<=endC){
+				for (int i = 0; i < tiles.size(); i++){
+					//System.out.println("reached game board");
+					tileSpace = gameBoard[col][startR];
+					tileSpace.placeTile(tiles.get(i));
+					col++;
+				}
+			}
+		}
 	}
 }

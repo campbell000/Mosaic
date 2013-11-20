@@ -5,19 +5,21 @@
  */
 public class Space {
 
-	Action action;
-	boolean occupied = false;
-	Tile currentTile;
+	private boolean occupied = false;
+	private Tile currentTile;
+	private boolean alreadyUsed = false;
 	
 	protected Space(){
 		
 	}
 	
 	public String toString(){
-		return action.toString();
+		return " ";
 	}
 	
+	//Tile stuff
 	public void placeTile(Tile t){
+		//System.out.println(t.toString() + " was placed");
 		occupied = true;
 		currentTile = t;
 	}
@@ -27,7 +29,19 @@ public class Space {
 		currentTile = null;
 	}
 	
+	public Tile getTile(){
+		return currentTile;
+	}
+	//Returns whether it is occupied
 	protected boolean isOccupied(){
 		return occupied;
+	}
+	
+	//Acessors and setters for used
+	protected boolean getUsed(){
+		return alreadyUsed;
+	}
+	public void setUsed(){
+		alreadyUsed = true;
 	}
 }

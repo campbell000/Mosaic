@@ -25,6 +25,7 @@ import javax.swing.event.ChangeEvent;
 
 public class GameBoardInstance extends JFrame {
 
+	private User user;
 	JPanel panelGameBoard;
 	UserNameplate theUser;
 	UserNameplate theOpponent;
@@ -52,8 +53,9 @@ public class GameBoardInstance extends JFrame {
 	 * @return <code></code>
 	 * 
 	 */
-	public GameBoardInstance() {
+	public GameBoardInstance(User u) {
 		super();
+		user = u;
 		setContentPane(createContent());
 
 		setResizable(false);
@@ -659,7 +661,7 @@ public class GameBoardInstance extends JFrame {
 	}
 
 	public void forfeitGame() {
-		Home_Screen homescreen = new Home_Screen();
+		Home_Screen homescreen = new Home_Screen(user);
 		dispose();
 	}
 

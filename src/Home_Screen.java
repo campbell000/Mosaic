@@ -18,9 +18,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
 public class Home_Screen extends JFrame {
-
-	public Home_Screen() {
-
+	private User user;
+	
+	public Home_Screen(User u) {
+		this.user = u;
 		// Container for everything
 		Container contents = this.getContentPane();
 		JFrame container = new JFrame("Mosiac Game Menu");
@@ -205,7 +206,6 @@ public class Home_Screen extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// This code should go to check stat menu
-			User user = new User("Alex Campbell", "hunter2", "ascampbell@loyola.edu");
 			UserStatsScreenGui statScreen = new UserStatsScreenGui(user);
 		}
 
@@ -256,7 +256,7 @@ public class Home_Screen extends JFrame {
 			popup.setVisible(false);
 			popup.dispose();
 
-			GameBoardController gameBoard = new GameBoardController(new GameBoardInstance());
+			GameBoardController gameBoard = new GameBoardController(new GameBoardInstance(user), user);
 		}
 	}
 

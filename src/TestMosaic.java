@@ -5,7 +5,7 @@ public class TestMosaic {
 
 	public static void main(String[] args){
 		
-		TileSystem test = new TileSystem();
+		/*TileSystem test = new TileSystem();
 		
 		ArrayList<Tile> list = test.drawTiles(7);
 		System.out.println("Initial list");
@@ -32,12 +32,20 @@ public class TestMosaic {
 		for(int i = 0; i < list.size(); i++){
 			System.out.println(list.get(i).toString());
 		}
-		
-		//Board board = new Board();
+		*/
+		Board board = new Board();
 		
 		//System.out.println(board.getSpaces(0,0,0,14));
 		
-		/*GameSystem game = new GameSystem();
-		game.placeWord("psychology", 0,0,0,0);*/
+		GameSystem game = new GameSystem();
+		game.placeWord("BAD", 0,0,2,0);
+		
+		
+		ArrayList<Space> spaces = board.getSpaces(0,0,2,0);
+		System.out.println("Spaces size " + spaces.size());
+		
+		for (int i = 0; i < spaces.size(); i++){
+				System.out.println(spaces.get(i).getTile());
+		}
 	}
 }

@@ -14,8 +14,9 @@ public class DictionarySystem {
 		try {
 			Scanner dScan = new Scanner(new File("enable1.txt"), "UTF-8");
 			while(dScan.hasNext()){
-				dictionary.add(dScan.next());
+				dictionary.add(dScan.next().toUpperCase());
 			}
+		
 		} 
 		catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -26,6 +27,7 @@ public class DictionarySystem {
 	}
 	
 	protected boolean isAWord(String word){
+		System.out.println(dictionary.contains(word));
 		return dictionary.contains(word);
 	}
 }
