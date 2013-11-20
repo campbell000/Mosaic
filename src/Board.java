@@ -179,4 +179,8 @@ public class Board {
 		System.out.println(spaces.size());
 		return spaces;
 	}
+	
+	protected void placeTiles(){
+		
+	}
 }

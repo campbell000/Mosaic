@@ -8,7 +8,7 @@ import java.io.*;
 
 public class DictionarySystem {
 
-	HashSet dictionary = new HashSet();
+	HashSet<String> dictionary = new HashSet<String>();
 	protected DictionarySystem(){
 		
 		try {

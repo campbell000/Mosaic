@@ -9,176 +9,178 @@ import java.util.*;
 public class TileSystem {
 	
 	ArrayList<Tile> tileBag = new ArrayList<Tile>();
+	Map<Character, Integer > alphabetValue = new HashMap<Character, Integer>();
 	
 	public TileSystem(){
 		
+		this.initAlphabet();
 		//TemporaryTile used for creation
 		Tile tempTile;
 		
 		
 		//Letter A
 		for(int i=0; i < 9; i++){
-			tempTile = new Tile(1, 'A');
+			tempTile = new Tile(alphabetValue.get('A'), 'A');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter B
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(2, 'B');
+			tempTile = new Tile(alphabetValue.get('B'), 'B');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter C
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(3, 'C');
+			tempTile = new Tile(alphabetValue.get('C'), 'C');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter D
 		for(int i = 0; i <4; i++){
-			tempTile = new Tile(2, 'D');
+			tempTile = new Tile(alphabetValue.get('D'), 'D');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter E
 		for(int i = 0; i <12; i++){
-			tempTile = new Tile(1, 'E');
+			tempTile = new Tile(alphabetValue.get('E'), 'E');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter F
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(4, 'F');
+			tempTile = new Tile(alphabetValue.get('F'), 'F');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter G
 		for(int i = 0; i <3; i++){
-			tempTile = new Tile(2, 'G');
+			tempTile = new Tile(alphabetValue.get('G'), 'G');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter H
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(4, 'H');
+			tempTile = new Tile(alphabetValue.get('H'), 'H');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter I
 		for(int i = 0; i <9; i++){
-			tempTile = new Tile(1, 'I');
+			tempTile = new Tile(alphabetValue.get('I'), 'I');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter J
 		for(int i = 0; i <1; i++){
-			tempTile = new Tile(8, 'J');
+			tempTile = new Tile(alphabetValue.get('J'), 'J');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter K
 		for(int i = 0; i <1; i++){
-			tempTile = new Tile(5, 'K');
+			tempTile = new Tile(alphabetValue.get('K'), 'K');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter L
 		for(int i = 0; i <4; i++){
-			tempTile = new Tile(1, 'L');
+			tempTile = new Tile(alphabetValue.get('L'), 'L');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter M
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(3, 'M');
+			tempTile = new Tile(alphabetValue.get('M'), 'M');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter N
 		for(int i = 0; i <6; i++){
-			tempTile = new Tile(1, 'N');
+			tempTile = new Tile(alphabetValue.get('N'), 'N');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter O
 		for(int i = 0; i <8; i++){
-			tempTile = new Tile(1, 'O');
+			tempTile = new Tile(alphabetValue.get('O'), 'O');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter P
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(3, 'P');
+			tempTile = new Tile(alphabetValue.get('P'), 'P');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter Q
 		for(int i = 0; i <1; i++){
-			tempTile = new Tile(10, 'Q');
+			tempTile = new Tile(alphabetValue.get('Q'), 'Q');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter R
 		for(int i = 0; i <6; i++){
-			tempTile = new Tile(1, 'R');
+			tempTile = new Tile(alphabetValue.get('R'), 'R');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter S
 		for(int i = 0; i <4; i++){
-			tempTile = new Tile(1, 'S');
+			tempTile = new Tile(alphabetValue.get('S'), 'S');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter T
 		for(int i = 0; i <6; i++){
-			tempTile = new Tile(1, 'T');
+			tempTile = new Tile(alphabetValue.get('T'), 'T');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter U
 		for(int i = 0; i <4; i++){
-			tempTile = new Tile(1, 'U');
+			tempTile = new Tile(alphabetValue.get('U'), 'U');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter V
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(4, 'V');
+			tempTile = new Tile(alphabetValue.get('V'), 'V');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter W
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(4, 'W');
+			tempTile = new Tile(alphabetValue.get('W'), 'W');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter X
 		for(int i = 0; i <1; i++){
-			tempTile = new Tile(8, 'X');
+			tempTile = new Tile(alphabetValue.get('X'), 'X');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter Y
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(4, 'Y');
+			tempTile = new Tile(alphabetValue.get('Y'), 'Y');
 			tileBag.add(tempTile);
 		}
 		
 		//Letter Z
 		for(int i = 0; i <1; i++){
-			tempTile = new Tile(10, 'Z');
+			tempTile = new Tile(alphabetValue.get('Z'), 'Z');
 			tileBag.add(tempTile);
 		}
 		
 		//Blank Tiles
 		for(int i = 0; i <2; i++){
-			tempTile = new Tile(0, ' ');
+			tempTile = new Tile(alphabetValue.get(' '), ' ');
 			tileBag.add(tempTile);
 		}
 		
-		System.out.println(tileBag.toString());
+		//System.out.println(tileBag.toString());
 	} //Initializes TileBag
 	
 	/**
@@ -200,6 +202,37 @@ public class TileSystem {
 		return drawn;
 	}
 	
+	private void initAlphabet (){
+		
+		//alphabetValue
+		alphabetValue.put('A', 1);
+		alphabetValue.put('B', 2);
+		alphabetValue.put('C', 3);
+		alphabetValue.put('D', 2);
+		alphabetValue.put('E', 1);
+		alphabetValue.put('F', 4);
+		alphabetValue.put('G', 2);
+		alphabetValue.put('H', 4);
+		alphabetValue.put('I', 1);
+		alphabetValue.put('J', 8);
+		alphabetValue.put('K', 5);
+		alphabetValue.put('L', 1);
+		alphabetValue.put('M', 3);
+		alphabetValue.put('N', 1);
+		alphabetValue.put('O', 1);
+		alphabetValue.put('P', 3);
+		alphabetValue.put('Q', 10);
+		alphabetValue.put('R', 1);
+		alphabetValue.put('S', 1);
+		alphabetValue.put('T', 1);
+		alphabetValue.put('U', 1);
+		alphabetValue.put('V', 4);
+		alphabetValue.put('W', 4);
+		alphabetValue.put('X', 8);
+		alphabetValue.put('Y', 4);
+		alphabetValue.put('Z', 10);
+		alphabetValue.put(' ', 0);
+	}
 	public ArrayList<Tile> drawTiles(int num){
 		
 		//Random Generator mimics randomness of drawing from bag
@@ -215,6 +248,7 @@ public class TileSystem {
 			Tile drawn = tileBag.get(drawIndex);
 			tileBag.remove(drawIndex);
 			newTiles.add(drawn);
+			drawIndex = rand.nextInt(tileBag.size());
 		}	
 		//returns list of drawn tiles
 		return newTiles;
@@ -241,7 +275,7 @@ public class TileSystem {
 			return drawn;
 	}
 	
-	public ArrayList<Tile> swapTiles(int num){
+	public ArrayList<Tile> swapTiles(ArrayList<Tile> oldTiles){
 		//Random Generator mimics randomness of drawing from bag
 		//Produces Random Index for arraylist
 		Random rand = new Random();
@@ -250,14 +284,34 @@ public class TileSystem {
 		//ArrayList of NewTiles
 		ArrayList<Tile> newTiles = new ArrayList<Tile>();
 				
-		for(int i = 0; i < num; i++){
+		for(int i = 0; i < oldTiles.size(); i++){
 			//Updates the bag now that tile is removed
 			Tile drawn = tileBag.get(drawIndex);
 			tileBag.remove(drawIndex);
 			newTiles.add(drawn);
+			drawIndex = rand.nextInt(tileBag.size());
 		}	
+		
+		for(int j = 0; j <oldTiles.size(); j++)
+				tileBag.add(oldTiles.get(j));
 		//returns list of drawn tiles
 		return newTiles;
 	}
-
+	
+	/**
+	 * Translates string word into tiles to be placed on board
+	 * @param word
+	 * @return
+	 */
+	protected ArrayList<Tile> getTiles(String word){
+		ArrayList<Tile> wordTiles = new ArrayList<Tile>();
+		
+		for(int i = 0; i < word.length(); i++){
+			char letter = word.charAt(i);
+			Tile temp = new Tile(alphabetValue.get(letter), letter);
+			wordTiles.add(temp);
+		}
+		
+		return wordTiles;
+	}
 }
