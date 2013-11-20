@@ -146,6 +146,8 @@ public class GameBoardController {
 				// HomeScreenControllers(new Home_Screen());
 				Home_Screen homescreen = new Home_Screen(user);
 				gameBoard.dispose();
+				game.tearDown();
+				game = null;
 
 			}
 		}

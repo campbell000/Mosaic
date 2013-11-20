@@ -47,6 +47,11 @@ public class GameSystem {
 		
 	}
 	
+	//Return game value
+	protected int getValue(){
+		return gameValue;
+	}
+	
 	protected int placeWord(String word, int startR, int startC, int endC, int endR){
 		//Need string of words trying to be placed, starting indicies and ending indicies
 		if(dictionary.isAWord(word)){
@@ -62,5 +67,17 @@ public class GameSystem {
 	protected int getScore(ArrayList<Space> spaces){
 		
 		return scoring.calculateScore(spaces);
+	}
+	
+	/**
+	 * Tear down method
+	 */
+	protected void tearDown(){
+		gameValue = 0;
+		gameBoard = null;
+		scoring = null;
+		doubleSystem = null;
+		dictionary = null;
+		tileSystem = null;
 	}
 }
