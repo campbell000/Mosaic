@@ -58,7 +58,8 @@ public class GameSystem {
 			ArrayList<Tile> wordTiles = tileSystem.getTiles(word);
 			//System.out.println("made it past wordTiles");
 			gameBoard.placeTiles(wordTiles, startR, startC, endR, endC);
-			return getScore(gameBoard.getSpaces(startC, startR, endR, endC));
+			
+			return getScore(gameBoard.getSpaces(startR, startC, endR, endC));
 		}
 		
 		return -1;
@@ -68,7 +69,13 @@ public class GameSystem {
 		
 		return scoring.calculateScore(spaces);
 	}
-	
+	/**
+	 * Returns board of the game
+	 * @return
+	 */
+	protected Space[][] getBoard(){
+		return gameBoard.getBoard();
+	}
 	/**
 	 * Tear down method
 	 */

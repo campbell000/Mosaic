@@ -28,7 +28,7 @@ public class Board {
 		//Placing all normal spaces first
 		for (int l = 0; l < gameBoard.length; l++){
 			for(int w = 0; w < gameBoard.length; w++){
-				gameBoard[l][w] = new NormalSpace();
+				gameBoard[l][w] = new Space();
 			}
 		}
 		
@@ -147,7 +147,7 @@ public class Board {
 	 * @param endR
 	 * @return
 	 */
-	protected ArrayList<Space> getSpaces(int startC, int startR, int endC, int endR){
+	protected ArrayList<Space> getSpaces(int startR, int startC, int endR, int endC){
 		
 		//System.out.println("In getSpaces method!");
 		ArrayList<Space> spaces = new ArrayList<Space>();
@@ -179,8 +179,14 @@ public class Board {
 		System.out.println(spaces.size());
 		return spaces;
 	}
-	
-	protected void placeTiles(ArrayList<Tile> tiles, int startC, int startR, int endC, int endR){
+	/**
+	 * Get's gameboard
+	 * @return
+	 */
+	protected Space[][] getBoard(){
+		return gameBoard;
+	}
+	protected void placeTiles(ArrayList<Tile> tiles, int startR, int startC, int endR, int endC){
 		//System.out.println("made it to placeTiles");
 		Space tileSpace = new Space();
 		//Vertical Word Placement

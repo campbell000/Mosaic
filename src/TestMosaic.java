@@ -34,19 +34,22 @@ public class TestMosaic {
 		}
 		*/
 		Board board = new Board();
-		/*
+		
 		//System.out.println(board.getSpaces(0,0,0,14));
 		
 		GameSystem game = new GameSystem();
-		game.placeWord("BAD", 0,0,2,0);
+		System.out.println("Place Word result: " + game.placeWord("PICKLE", 0,0,2,0));
 		
+		
+		/*ArrayList<Space> spaces = board.getSpaces(0,0,2,0);
+		System.out.println("Spaces size " + spaces.size());
+		System.out.println("Score: " + game.getScore(spaces));
 		*/
-		ArrayList<Space> spaces = board.getSpaces(0,0,2,0);
-		//System.out.println("Spaces size " + spaces.size());
+		//Action action = new Action("3W");
+		//action.newValue(12);
 		
 		
-		
-		ScoringSystem score = new ScoringSystem();
-		score.calculateScore(spaces);
+		//ScoringSystem score = new ScoringSystem();
+		//score.calculateScore(spaces);
 	}
 }

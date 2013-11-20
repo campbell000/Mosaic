@@ -8,7 +8,7 @@
 public class Tile {
 	
 	//Two attributes of the Tile
-	private int value;
+	private int value = 0;
 	private char letter;
 	
 	

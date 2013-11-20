@@ -87,7 +87,6 @@ public class GameBoardController {
 	class SwapTilesListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent loginAttempt) {
-			// TODO Auto-generated method stub
 
 			// Format is tiles all caps no spaces
 			// Ex. B, F, G = "BFG"
