@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class GameBoardController {
 
 	private final GameBoardInstance gameBoard;
-	private User user;
+	private final User user;
 	private GameSystem game;
 
 	/**
@@ -29,13 +29,16 @@ public class GameBoardController {
 	 */
 	public GameBoardController(GameBoardInstance gameBoard, User u) {
 		user = u;
+		game = new GameSystem();
+
 		this.gameBoard = gameBoard;
 
 		this.gameBoard.addDoubleListener(new DoubleListener());
 		this.gameBoard.addSwapTilesListener(new SwapTilesListener());
 		this.gameBoard.addPlayHandListener(new PlayHandListener());
 		this.gameBoard.addForfeitListener(new ForfeitListener());
-		game = new GameSystem();
+		this.gameBoard.setGameBoardTableModel();
+		this.gameBoard.setCurrentHandTableModel(game.tileSystem.drawTiles(7));
 
 	}
 
@@ -85,10 +88,10 @@ public class GameBoardController {
 		@Override
 		public void actionPerformed(ActionEvent loginAttempt) {
 			// TODO Auto-generated method stub
-			
-			//Format is tiles all caps no spaces
-			//Ex. B, F, G = "BFG"
-			//game.swapTiles(hand);
+
+			// Format is tiles all caps no spaces
+			// Ex. B, F, G = "BFG"
+			// game.swapTiles(hand);
 		}
 	}
 
@@ -107,16 +110,16 @@ public class GameBoardController {
 	class PlayHandListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent loginAttempt) {
-			//Placing Word in the game system
-			//protected int placeWord(String word, int startR, int startC, int endC, int endR)
-			//If a word is valid, it returns the score of the word
-			//If not in dictionary, is -1
-			//game.placeWord(word, startR, startC, endC, endR)
+			// Placing Word in the game system
+			// protected int placeWord(String word, int startR, int startC, int
+			// endC, int endR)
+			// If a word is valid, it returns the score of the word
+			// If not in dictionary, is -1
+			// game.placeWord(word, startR, startC, endC, endR)
 			gameBoard.createBettingPopUp();
 		}
 	}
 
-	
 	/**
 	 * Inner class supporting the functionalities of the Forfeit button found on
 	 * the Mosaic game board.

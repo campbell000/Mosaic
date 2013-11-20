@@ -80,4 +80,17 @@ public class GameSystem {
 		dictionary = null;
 		tileSystem = null;
 	}
+
+	/**
+	 * description sentence <code></code>
+	 *
+	 * <p>description paragraph</p>
+	 *
+	 * @param
+	 * @param
+	 * @return
+	 */
+	public Object getGameBoard() {
+		return this.gameBoard;
+	}
 }

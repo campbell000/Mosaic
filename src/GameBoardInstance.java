@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
@@ -25,7 +26,7 @@ import javax.swing.event.ChangeEvent;
 
 public class GameBoardInstance extends JFrame {
 
-	private User user;
+	private final User user;
 	JPanel panelGameBoard;
 	UserNameplate theUser;
 	UserNameplate theOpponent;
@@ -61,8 +62,8 @@ public class GameBoardInstance extends JFrame {
 		setResizable(false);
 		// setDropTarget(getDropTarget());
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2
-				- this.getSize().height / 2);
+		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height
+				/ 2 - this.getSize().height / 2);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -75,7 +76,8 @@ public class GameBoardInstance extends JFrame {
 		panelGameBoard.setBackground(new Color(214, 213, 213));
 		panelGameBoard.setForeground(new Color(0, 0, 0));
 
-		panelGameBoard.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		panelGameBoard.setBorder(BorderFactory
+				.createEmptyBorder(10, 10, 10, 10));
 
 		theGameBoard = new GameBoardComponent();
 		theCurrentHand = new CurrentHandComponent();
@@ -100,8 +102,8 @@ public class GameBoardInstance extends JFrame {
 		buttonForfeit.setFont(new java.awt.Font("Aharoni", 0, 13));
 
 		userPotentialScore.setFont(new java.awt.Font("Aharoni", 0, 14));
-		userPotentialScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(
-				102, 102, 102), 1));
+		userPotentialScore.setBorder(javax.swing.BorderFactory
+				.createLineBorder(new java.awt.Color(102, 102, 102), 1));
 
 		/**
 		 * File imageCheck = new File("src/swap-icon.jpg");
@@ -111,13 +113,18 @@ public class GameBoardInstance extends JFrame {
 
 		buttonSwap.setBackground(new java.awt.Color(153, 187, 201));
 		buttonSwap.setForeground(new java.awt.Color(0, 0, 0));
-		buttonSwap.setIcon(new ImageIcon(getClass().getResource("resources/swap-icon.jpg")));
+		buttonSwap.setIcon(new ImageIcon(getClass().getResource(
+				"resources/swap-icon.jpg")));
 		buttonSwap.setBorderPainted(false);
 
-		buttonTilesLeft.setIcon(new ImageIcon(getClass().getResource("resources/sack2.png")));
-		buttonPlay.setIcon(new ImageIcon(getClass().getResource("resources/playArrow.png")));
-		buttonDouble.setIcon(new ImageIcon(getClass().getResource("resources/doubleDice.png")));
-		buttonLogo.setIcon(new ImageIcon(getClass().getResource("resources/mosaicBanner.jpg")));
+		buttonTilesLeft.setIcon(new ImageIcon(getClass().getResource(
+				"resources/sack2.png")));
+		buttonPlay.setIcon(new ImageIcon(getClass().getResource(
+				"resources/playArrow.png")));
+		buttonDouble.setIcon(new ImageIcon(getClass().getResource(
+				"resources/doubleDice.png")));
+		buttonLogo.setIcon(new ImageIcon(getClass().getResource(
+				"resources/mosaicBanner.jpg")));
 
 		GroupLayout layout = new GroupLayout(panelGameBoard);
 		panelGameBoard.setLayout(layout);
@@ -133,50 +140,60 @@ public class GameBoardInstance extends JFrame {
 				.addGap(40)
 
 				.addGroup(
-						layout
-								.createParallelGroup()
+						layout.createParallelGroup()
 								.addGap(81, 81, 81)
 								.addComponent(theUser)
 
 								.addComponent(theOpponent)
 
 								.addGroup(
-										layout.createSequentialGroup().addGap(135)
-												.addComponent(buttonTilesLeft, 91, 91, 91))
+										layout.createSequentialGroup()
+												.addGap(135)
+												.addComponent(buttonTilesLeft,
+														91, 91, 91))
 								.addGroup(
-										layout.createSequentialGroup().addGap(80)
-												.addComponent(userPotentialScore, 200, 200, 200))
+										layout.createSequentialGroup()
+												.addGap(80)
+												.addComponent(
+														userPotentialScore,
+														200, 200, 200))
 
 								.addGroup(
-										layout.createSequentialGroup().addGap(130)
+										layout.createSequentialGroup()
+												.addGap(130)
 
-										.addComponent(testTextField, 40, 40, 40)
-												.addComponent(buttonForfeit, 110, 110, 110))
+												.addComponent(testTextField,
+														40, 40, 40)
+												.addComponent(buttonForfeit,
+														110, 110, 110))
 								.addGroup(
-										layout.createSequentialGroup().addComponent(
-												buttonLogo,
-												380,
-												380,
-												380)))
+										layout.createSequentialGroup()
+												.addComponent(buttonLogo, 380,
+														380, 380)))
 				.addGap(30)
 				.addGroup(
-						layout
-								.createParallelGroup()
+						layout.createParallelGroup()
 
 								.addComponent(theGameBoard, 750, 750, 750)
 
 								.addGroup(
-										layout.createSequentialGroup().addGap(20)
-												.addComponent(theCurrentHand, 350, 350, 350)
-												.addGap(15).addComponent(buttonPlay).addGap(80)
-												.addComponent(buttonSwap, 60, 60, 60).addGap(30)
-												.addComponent(buttonDouble, 60, 60, 60))));// setHorizontalGroup
+										layout.createSequentialGroup()
+												.addGap(20)
+												.addComponent(theCurrentHand,
+														350, 350, 350)
+												.addGap(15)
+												.addComponent(buttonPlay)
+												.addGap(80)
+												.addComponent(buttonSwap, 60,
+														60, 60)
+												.addGap(30)
+												.addComponent(buttonDouble, 60,
+														60, 60))));// setHorizontalGroup
 
 		layout.setVerticalGroup(layout
 				.createParallelGroup()
 				.addGroup(
-						layout
-								.createSequentialGroup()
+						layout.createSequentialGroup()
 								.addGap(50)
 								.addComponent(theUser)
 								.addGap(40)
@@ -188,49 +205,49 @@ public class GameBoardInstance extends JFrame {
 								.addGap(30)
 								.addGroup(
 										layout.createParallelGroup()
-												.addComponent(testTextField, 35, 35, 35)
-												.addComponent(buttonForfeit, 50, 50, 50))
+												.addComponent(testTextField,
+														35, 35, 35)
+												.addComponent(buttonForfeit,
+														50, 50, 50))
 								.addGap(40)
 								.addGroup(
-										layout.createParallelGroup().addGap(20)
-												.addComponent(buttonLogo, 180, 180, 180)))
+										layout.createParallelGroup()
+												.addGap(20)
+												.addComponent(buttonLogo, 180,
+														180, 180)))
 
 				.addGroup(
-						layout
-								.createSequentialGroup()
+						layout.createSequentialGroup()
 								.addComponent(theGameBoard, 675, 675, 675)
 								.addGap(15)
 								.addGroup(
-										layout
-												.createParallelGroup()
+										layout.createParallelGroup()
 												.addGroup(
-														layout
-																.createSequentialGroup()
+														layout.createSequentialGroup()
 																.addGap(7)
 																.addComponent(
 																		theCurrentHand,
-																		45,
-																		45,
+																		45, 45,
 																		45))
 												.addComponent(buttonPlay)
-												.addComponent(buttonSwap, 60, 60, 60)
-												.addComponent(buttonDouble, 60, 60, 60))));// setVerticalGroup
+												.addComponent(buttonSwap, 60,
+														60, 60)
+												.addComponent(buttonDouble, 60,
+														60, 60))));// setVerticalGroup
 
 		GroupLayout windowlayout = new GroupLayout(getContentPane());
 
 		getContentPane().setLayout(windowlayout);
-		windowlayout.setHorizontalGroup(windowlayout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				panelGameBoard,
-				GroupLayout.DEFAULT_SIZE,
-				784,
-				Short.MAX_VALUE));
-		windowlayout.setVerticalGroup(windowlayout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				panelGameBoard,
-				GroupLayout.DEFAULT_SIZE,
-				444,
-				Short.MAX_VALUE));
+		windowlayout
+				.setHorizontalGroup(windowlayout.createParallelGroup(
+						javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(panelGameBoard, GroupLayout.DEFAULT_SIZE,
+								784, Short.MAX_VALUE));
+		windowlayout
+				.setVerticalGroup(windowlayout.createParallelGroup(
+						javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(panelGameBoard, GroupLayout.DEFAULT_SIZE,
+								444, Short.MAX_VALUE));
 
 		pack();
 		return panelGameBoard;
@@ -263,8 +280,7 @@ public class GameBoardInstance extends JFrame {
 			setContentPane(createBettingContent());
 			setResizable(false);
 			Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-			this.setLocation(
-					dim.width / 2 - this.getSize().width / 2,
+			this.setLocation(dim.width / 2 - this.getSize().width / 2,
 					dim.height / 2 - this.getSize().height / 2);
 
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -314,8 +330,8 @@ public class GameBoardInstance extends JFrame {
 				}
 			});
 
-			labelBanner
-					.setIcon(new ImageIcon(getClass().getResource("resources/bettingbanner.jpg")));
+			labelBanner.setIcon(new ImageIcon(getClass().getResource(
+					"resources/bettingbanner.jpg")));
 			labelBanner.setEnabled(false);
 
 			buttonBet.addActionListener(new java.awt.event.ActionListener() {
@@ -340,20 +356,31 @@ public class GameBoardInstance extends JFrame {
 			panelBettingLayout.setAutoCreateGaps(true);
 			// panelLoginLayout.setAutoCreateContainerGaps(true);
 
-			panelBettingLayout.setHorizontalGroup(panelBettingLayout
-					.createParallelGroup()
-					.addComponent(labelBanner, 500, 500, 500)
-					.addGroup(
-							panelBettingLayout.createSequentialGroup().addGap(120)
-									.addComponent(textBetAmount, 250, 250, 250))
-					.addGroup(
-							panelBettingLayout.createSequentialGroup().addGap(110)
-									.addComponent(sliderBet, 270, 270, 270))
+			panelBettingLayout
+					.setHorizontalGroup(panelBettingLayout
+							.createParallelGroup()
+							.addComponent(labelBanner, 500, 500, 500)
+							.addGroup(
+									panelBettingLayout
+											.createSequentialGroup()
+											.addGap(120)
+											.addComponent(textBetAmount, 250,
+													250, 250))
+							.addGroup(
+									panelBettingLayout
+											.createSequentialGroup()
+											.addGap(110)
+											.addComponent(sliderBet, 270, 270,
+													270))
 
-					.addGroup(
-							panelBettingLayout.createSequentialGroup().addGap(150)
-									.addComponent(buttonBet, 80, 80, 80).addGap(50)
-									.addComponent(buttonCancel, 80, 80, 80)).addGap(0));// setHorizontalGroup
+							.addGroup(
+									panelBettingLayout
+											.createSequentialGroup()
+											.addGap(150)
+											.addComponent(buttonBet, 80, 80, 80)
+											.addGap(50)
+											.addComponent(buttonCancel, 80, 80,
+													80)).addGap(0));// setHorizontalGroup
 
 			panelBettingLayout.setVerticalGroup(panelBettingLayout
 					.createSequentialGroup()
@@ -367,7 +394,8 @@ public class GameBoardInstance extends JFrame {
 					.addGroup(
 							panelBettingLayout.createParallelGroup()
 									.addComponent(buttonBet, 30, 30, 30)
-									.addComponent(buttonCancel, 30, 30, 30)).addGap(20)
+									.addComponent(buttonCancel, 30, 30, 30))
+					.addGap(20)
 
 			);// setVerticalGroup
 
@@ -376,15 +404,11 @@ public class GameBoardInstance extends JFrame {
 			getContentPane().setLayout(windowlayout);
 			windowlayout.setHorizontalGroup(windowlayout.createParallelGroup(
 					javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-					panelBetting,
-					GroupLayout.DEFAULT_SIZE,
-					450,
+					panelBetting, GroupLayout.DEFAULT_SIZE, 450,
 					Short.MAX_VALUE));
 			windowlayout.setVerticalGroup(windowlayout.createParallelGroup(
 					javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-					panelBetting,
-					GroupLayout.DEFAULT_SIZE,
-					220,
+					panelBetting, GroupLayout.DEFAULT_SIZE, 220,
 					Short.MAX_VALUE));
 
 			pack();
@@ -462,8 +486,7 @@ public class GameBoardInstance extends JFrame {
 			pack();
 			setResizable(false);
 			Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-			this.setLocation(
-					dim.width / 2 - this.getSize().width / 2,
+			this.setLocation(dim.width / 2 - this.getSize().width / 2,
 					dim.height / 2 - this.getSize().height / 2);
 
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -501,10 +524,11 @@ public class GameBoardInstance extends JFrame {
 				}
 			});
 
-			labelWinner
-					.setIcon(new ImageIcon(getClass().getResource("resources/winnerBanner.jpg")));
+			labelWinner.setIcon(new ImageIcon(getClass().getResource(
+					"resources/winnerBanner.jpg")));
 
-			labelLoser.setIcon(new ImageIcon(getClass().getResource("resources/loserBanner.jpg")));
+			labelLoser.setIcon(new ImageIcon(getClass().getResource(
+					"resources/loserBanner.jpg")));
 
 			GroupLayout panelGameResultLayout = new GroupLayout(winingPanel);
 			winingPanel.setLayout(panelGameResultLayout);
@@ -516,19 +540,23 @@ public class GameBoardInstance extends JFrame {
 					.createParallelGroup()
 
 					.addGroup(
-							panelGameResultLayout.createSequentialGroup().addGap(10)
+							panelGameResultLayout.createSequentialGroup()
+									.addGap(10)
 									.addComponent(labelWinner, 360, 360, 360)
 									.addComponent(labelLoser))
 					.addGroup(
-							panelGameResultLayout.createSequentialGroup().addGap(10)
+							panelGameResultLayout.createSequentialGroup()
+									.addGap(10)
 									.addComponent(theUser, 360, 360, 360)
 									.addComponent(theOpponent, 360, 360, 360))
 					.addGroup(
-							panelGameResultLayout.createSequentialGroup().addGap(18)
-									.addComponent(panelStats))
+							panelGameResultLayout.createSequentialGroup()
+									.addGap(18).addComponent(panelStats))
 					.addGroup(
-							panelGameResultLayout.createSequentialGroup().addGap(350)
-									.addComponent(buttonOk, 60, 60, 60)).addGap(0));// setHorizontalGroup
+							panelGameResultLayout.createSequentialGroup()
+									.addGap(350)
+									.addComponent(buttonOk, 60, 60, 60))
+					.addGap(0));// setHorizontalGroup
 
 			panelGameResultLayout.setVerticalGroup(panelGameResultLayout
 					.createSequentialGroup()
@@ -541,14 +569,14 @@ public class GameBoardInstance extends JFrame {
 							panelGameResultLayout.createParallelGroup()
 									.addComponent(theUser, 90, 90, 90)
 									.addComponent(theOpponent, 90, 90, 90))
-					.addGroup(panelGameResultLayout.createParallelGroup().addComponent(panelStats))
+					.addGroup(
+							panelGameResultLayout.createParallelGroup()
+									.addComponent(panelStats))
 					.addGap(20)
 					.addGroup(
-							panelGameResultLayout.createParallelGroup().addComponent(
-									buttonOk,
-									40,
-									40,
-									40)).addGap(20)
+							panelGameResultLayout.createParallelGroup()
+									.addComponent(buttonOk, 40, 40, 40))
+					.addGap(20)
 
 			);// setVerticalGroup
 
@@ -556,17 +584,13 @@ public class GameBoardInstance extends JFrame {
 
 			getContentPane().setLayout(windowlayout);
 			windowlayout.setHorizontalGroup(windowlayout.createParallelGroup(
-					javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-					winingPanel,
-					GroupLayout.DEFAULT_SIZE,
-					650,
-					Short.MAX_VALUE));
+					javax.swing.GroupLayout.Alignment.LEADING)
+					.addComponent(winingPanel, GroupLayout.DEFAULT_SIZE, 650,
+							Short.MAX_VALUE));
 			windowlayout.setVerticalGroup(windowlayout.createParallelGroup(
-					javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-					winingPanel,
-					GroupLayout.DEFAULT_SIZE,
-					220,
-					Short.MAX_VALUE));
+					javax.swing.GroupLayout.Alignment.LEADING)
+					.addComponent(winingPanel, GroupLayout.DEFAULT_SIZE, 220,
+							Short.MAX_VALUE));
 
 			return winingPanel;
 		}
@@ -604,8 +628,7 @@ public class GameBoardInstance extends JFrame {
 				winCountLabel.setBackground(new Color(51, 51, 51));
 
 				setBorder(javax.swing.BorderFactory.createLineBorder(
-						new java.awt.Color(51, 51, 51),
-						2));
+						new java.awt.Color(51, 51, 51), 2));
 
 				GroupLayout panelStatsLayout = new GroupLayout(this);
 				setLayout(panelStatsLayout);
@@ -618,8 +641,9 @@ public class GameBoardInstance extends JFrame {
 				setMaximumSize(minimumSize);
 				setMinimumSize(minimumSize);
 
-				panelStatsLayout.setHorizontalGroup(panelStatsLayout.createParallelGroup(
-						GroupLayout.Alignment.LEADING).addComponent(winCountLabel, 100, 100, 100)
+				panelStatsLayout.setHorizontalGroup(panelStatsLayout
+						.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(winCountLabel, 100, 100, 100)
 				// .addGroup(
 				// panelStatsLayout.createSequentialGroup().addGap(70)
 				// .addComponent(winCountLabel, 100, 100, 100).addGap(50)
@@ -632,8 +656,9 @@ public class GameBoardInstance extends JFrame {
 				// .addComponent(winPercentageValue, 60, 60, 60))
 						);
 
-				panelStatsLayout.setVerticalGroup(panelStatsLayout.createSequentialGroup()
-						.addGap(50).addComponent(winCountLabel, 100, 100, 100)
+				panelStatsLayout.setVerticalGroup(panelStatsLayout
+						.createSequentialGroup().addGap(50)
+						.addComponent(winCountLabel, 100, 100, 100)
 				// .addGroup(
 				// panelStatsLayout.createParallelGroup().addGap(70)
 				// .addComponent(winCountLabel, 100, 100, 100)
@@ -725,6 +750,37 @@ public class GameBoardInstance extends JFrame {
 	 */
 	public void addSwapTilesListener(ActionListener swapTilesListener) {
 		this.buttonSwap.addActionListener(swapTilesListener);
+	}
+
+	/**
+	 * description sentence <code></code>
+	 * 
+	 * <p>
+	 * description paragraph
+	 * </p>
+	 * 
+	 * @param
+	 * @param
+	 * @return
+	 */
+	public void setGameBoardTableModel() {
+		// TODO Auto-generated method stub
+
+	}
+
+	/**
+	 * description sentence <code></code>
+	 * 
+	 * <p>
+	 * description paragraph
+	 * </p>
+	 * 
+	 * @param
+	 * @param
+	 * @return
+	 */
+	public void setCurrentHandTableModel(ArrayList<Tile> drawTiles) {
+		this.theCurrentHand.setInitialBoardModel(drawTiles);
 	}
 
 }
