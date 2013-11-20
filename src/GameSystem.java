@@ -27,6 +27,18 @@ public class GameSystem {
 		
 	}
 
+	//Swaping Tiles
+	protected String[] swapTiles(String hand){
+		
+		String[] newHand = new String[hand.length()];
+		
+		ArrayList<Tile> newTiles = tileSystem.swapTiles(tileSystem.getTiles(hand));
+		for(int i = 0; i < newTiles.size(); i++){
+			newHand[i] = newTiles.get(i).toString();
+		}
+		
+		return newHand;
+	}
 	//Doubling GameValue of System
 	protected int doubleGameValue(){
 		

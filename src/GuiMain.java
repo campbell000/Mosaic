@@ -19,7 +19,7 @@ public class GuiMain {
 	 */
 	public static void main(String[] args) {
 		GameBoardController test = new GameBoardController(
-				new GameBoardInstance());
+				new GameBoardInstance(new User("", "", "")), new User("", "", ""));
 
 	}
 

@@ -14,6 +14,7 @@ public class GameBoardController {
 
 	private final GameBoardInstance gameBoard;
 	private User user;
+	private GameSystem game;
 
 	/**
 	 * description sentence <code></code>
@@ -34,6 +35,7 @@ public class GameBoardController {
 		this.gameBoard.addSwapTilesListener(new SwapTilesListener());
 		this.gameBoard.addPlayHandListener(new PlayHandListener());
 		this.gameBoard.addForfeitListener(new ForfeitListener());
+		game = new GameSystem();
 
 	}
 
@@ -63,6 +65,7 @@ public class GameBoardController {
 			// when ok is selected, close all windows, and open a game window
 			if (userSelection == 0) {
 				gameBoard.setDoubledText();
+				game.doubleGameValue();
 			}
 		}
 	}
@@ -82,6 +85,10 @@ public class GameBoardController {
 		@Override
 		public void actionPerformed(ActionEvent loginAttempt) {
 			// TODO Auto-generated method stub
+			
+			//Format is tiles all caps no spaces
+			//Ex. B, F, G = "BFG"
+			//game.swapTiles(hand);
 		}
 	}
 
@@ -100,10 +107,16 @@ public class GameBoardController {
 	class PlayHandListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent loginAttempt) {
+			//Placing Word in the game system
+			//protected int placeWord(String word, int startR, int startC, int endC, int endR)
+			//If a word is valid, it returns the score of the word
+			//If not in dictionary, is -1
+			//game.placeWord(word, startR, startC, endC, endR)
 			gameBoard.createBettingPopUp();
 		}
 	}
 
+	
 	/**
 	 * Inner class supporting the functionalities of the Forfeit button found on
 	 * the Mosaic game board.
