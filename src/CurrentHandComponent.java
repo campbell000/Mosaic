@@ -42,6 +42,8 @@ public class CurrentHandComponent extends JTable {
 
 	private String[] currentHand;
 
+	private String setWord = "";
+
 	public HandCellComponent testAdder;
 
 	/**
@@ -63,17 +65,23 @@ public class CurrentHandComponent extends JTable {
 		setBorder(javax.swing.BorderFactory.createLineBorder(
 				new java.awt.Color(51, 51, 51), 3));
 
+		// setRowSelectionAllowed(false);
+
+		// setSelectionModel(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
+		// setSelectionModel(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
+		setColumnSelectionAllowed(true);
 		setDropMode(DropMode.USE_SELECTION);
 		setDragEnabled(true);
 		setTransferHandler(new MyTransferHandler());
-
-		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		setCellSelectionEnabled(true);
+		setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
 		setDefaultEditor(Object.class, new PanelCellEditor());
 		setDefaultRenderer(Object.class, new PanelCellRenderer());
 
 	}
-
 	/**
 	 * Sets the initial GameBoard table model; this is a one time only user when
 	 * a game stars
@@ -102,11 +110,32 @@ public class CurrentHandComponent extends JTable {
 
 		// testModel.setDataVector(dataVector, columnIdentifiers);
 		setModel(testModel);
+		addColumnSelectionInterval(0, 6);
 
+	}
+
+	/**
+	 * description sentence <code></code>
+	 * 
+	 * <p>
+	 * description paragraph
+	 * </p>
+	 * 
+	 * @param
+	 * @param
+	 * @return
+	 */
+	public int getEnabledHandTiles() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	public JTable getTable() {
 		return this;
+	}
+
+	public String getPlacedWord() {
+		return setWord;
 	}
 
 	@SuppressWarnings("serial")
@@ -125,6 +154,12 @@ public class CurrentHandComponent extends JTable {
 
 		@Override
 		protected Transferable createTransferable(JComponent source) {
+
+			setWord += (String) ((JTable) source).getModel().getValueAt(
+					((JTable) source).getSelectedRow(),
+					((JTable) source).getSelectedColumn());
+
+			System.out.println(setWord);
 
 			return new StringSelection((String) ((JTable) source).getModel()
 					.getValueAt(((JTable) source).getSelectedRow(),
@@ -184,9 +219,8 @@ public class CurrentHandComponent extends JTable {
 			// //if aspect is selected ? if true set selection background else
 			// (:) foreground
 
-			renderer.fieldTile.setBackground(isSelected
-					? Color.white
-					: Color.white);
+			renderer.fieldTile.setBackground(isSelected ? Color.getHSBColor(10,
+					10, 10) : Color.getHSBColor(10, 10, 10));
 
 			// renderer.setBackground(isSelected ? Color.black : Color.black);
 			// renderer.setForeground(isSelected ? Color.black : Color.black);
@@ -411,6 +445,22 @@ public class CurrentHandComponent extends JTable {
 		public String getComp() {
 			return this.fieldTile.getText();
 		}
+	}
+
+	/**
+	 * description sentence <code></code>
+	 * 
+	 * <p>
+	 * description paragraph
+	 * </p>
+	 * 
+	 * @param
+	 * @param
+	 * @return
+	 */
+	public String getSetWord() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }// eof

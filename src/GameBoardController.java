@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -15,6 +16,8 @@ public class GameBoardController {
 	private final GameBoardInstance gameBoard;
 	private final User user;
 	private GameSystem game;
+
+	private final ArrayList<Tile> currentHand;
 
 	/**
 	 * description sentence <code></code>
@@ -38,7 +41,9 @@ public class GameBoardController {
 		this.gameBoard.addPlayHandListener(new PlayHandListener());
 		this.gameBoard.addForfeitListener(new ForfeitListener());
 		this.gameBoard.setGameBoardTableModel();
-		this.gameBoard.setCurrentHandTableModel(game.tileSystem.drawTiles(7));
+
+		currentHand = game.tileSystem.drawTiles(7);
+		this.gameBoard.setInitialCurrentHandTableModel(currentHand);
 
 	}
 
@@ -86,7 +91,24 @@ public class GameBoardController {
 	 */
 	class SwapTilesListener implements ActionListener {
 		@Override
-		public void actionPerformed(ActionEvent loginAttempt) {
+		public void actionPerformed(ActionEvent swapTilesAttempt) {
+
+			int[] toChange;
+
+			// currently just getting the index of the letter you want to swap
+			toChange = gameBoard.getEnabledHandTiles();
+
+			/**
+			 * login.addActionListener(new ActionListener(){ public void
+			 * actionPerformed(ActionEvent actionEvent) { String username =
+			 * usernameField.getText(); String pass = password.getText(); try {
+			 * login(username, pass); } catch (Exception e) { // TODO
+			 * Auto-generated catch block e.printStackTrace(); } } });
+			 **/
+
+			currentHand.set(toChange[0], game.tileSystem.drawTiles(1).get(0));
+
+			gameBoard.setCurrentHandTableModel(currentHand);
 
 			// Format is tiles all caps no spaces
 			// Ex. B, F, G = "BFG"
@@ -115,7 +137,20 @@ public class GameBoardController {
 			// If a word is valid, it returns the score of the word
 			// If not in dictionary, is -1
 			// game.placeWord(word, startR, startC, endC, endR)
-			gameBoard.createBettingPopUp();
+
+			int userSelection;
+			String currentWord;
+
+			currentWord = gameBoard.getCurrentWord();
+
+			if (game.placeWord(currentWord, 0, 2, 0, 2) >= 0) {
+				gameBoard.createBettingPopUp();
+			} else {
+
+				JOptionPane.showMessageDialog(null, "That is not a Word!");
+
+			}
+
 		}
 	}
 

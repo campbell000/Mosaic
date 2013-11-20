@@ -267,9 +267,8 @@ public class GameBoardComponent extends JTable {
 			if (value != null) {
 				switch ((String) value) {
 					case "3W" :
-						renderer.fieldTile.setBackground(hasFocus
-								? Color.CYAN
-								: Color.CYAN);
+						renderer.fieldTile.setBackground(hasFocus ? Color
+								.getHSBColor(205, 81, 85) : Color.CYAN);
 						break;
 					case "2W" :
 						renderer.fieldTile.setBackground(isSelected

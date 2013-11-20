@@ -780,7 +780,54 @@ public class GameBoardInstance extends JFrame {
 	 * @return
 	 */
 	public void setCurrentHandTableModel(ArrayList<Tile> drawTiles) {
+
+		// /need to change name of InitialBoardModel, reuse on event of a swap
 		this.theCurrentHand.setInitialBoardModel(drawTiles);
+	}
+
+	/**
+	 * description sentence <code></code>
+	 * 
+	 * <p>
+	 * description paragraph
+	 * </p>
+	 * 
+	 * @param
+	 * @param
+	 * @return
+	 */
+	public void setInitialCurrentHandTableModel(ArrayList<Tile> drawTiles) {
+		this.theCurrentHand.setInitialBoardModel(drawTiles);
+	}
+
+	/**
+	 * description sentence <code></code>
+	 * 
+	 * <p>
+	 * description paragraph
+	 * </p>
+	 * 
+	 * @param
+	 * @param
+	 * @return
+	 */
+	public int[] getEnabledHandTiles() {
+		return this.theCurrentHand.getSelectedColumns();
+	}
+
+	/**
+	 * description sentence <code></code>
+	 * 
+	 * <p>
+	 * description paragraph
+	 * </p>
+	 * 
+	 * @param
+	 * @param
+	 * @return
+	 */
+	public String getCurrentWord() {
+		return this.theCurrentHand.getSetWord();
 	}
 
 }
