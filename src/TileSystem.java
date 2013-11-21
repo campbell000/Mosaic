@@ -9,13 +9,18 @@ import java.util.*;
 public class TileSystem {
 	
 	ArrayList<Tile> tileBag = new ArrayList<Tile>();
+	//Hand hasn't been implemented yet
 	ArrayList<Tile> hand = new ArrayList<Tile>();
 	Map<Character, Integer > alphabetValue = new HashMap<Character, Integer>();
 	
+	/**
+	 * Constructor for the tile system. It initializes the alphabet values in a
+	 * HashMap, creates the tiles for the tileBag and adds them inside a tilebag.
+	 */
 	public TileSystem(){
 		
 		this.initAlphabet();
-		hand = drawTiles(7);
+		//hand = drawTiles(7);
 		//TemporaryTile used for creation
 		Tile tempTile;
 		
@@ -186,8 +191,8 @@ public class TileSystem {
 	} //Initializes TileBag
 	
 	/**
-	 * 
-	 * @return
+	 * Allows user to draw single tile from tilebag
+	 * @return a tile from the tilebag chosen at random
 	 */
 	public Tile drawTile(){
 		
@@ -204,6 +209,10 @@ public class TileSystem {
 		return drawn;
 	}
 	
+	/**
+	 * initializes the alphabet, its value and adds them
+	 * to a hashtable
+	 */
 	private void initAlphabet (){
 		
 		//alphabetValue
@@ -235,6 +244,12 @@ public class TileSystem {
 		alphabetValue.put('Z', 10);
 		alphabetValue.put(' ', 0);
 	}
+	
+	/**
+	 * Allows user to draw multiple Tiles gives a number of tiles
+	 * @param num, an int representing the number of tiles to be drawn
+	 * @return an arrayList of Tiles chosen at random from the tilebag
+	 */
 	public ArrayList<Tile> drawTiles(int num){
 		
 		//Random Generator mimics randomness of drawing from bag
@@ -257,6 +272,11 @@ public class TileSystem {
 		
 	}
 	
+	/**
+	 * Allows user to swap a given tile from the tilebag and draw a new one
+	 * @param n, a tile to be swapped
+	 * @return a new tile to replace swapped tile
+	 */
 	public Tile swapTile(Tile n){
 		
 			// NEED TO ADD BACK INTO LIST
@@ -277,6 +297,11 @@ public class TileSystem {
 			return drawn;
 	}
 	
+	/**
+	 * Allows user to swap a given number of tiles from the tilebag and draw new ones
+	 * @param oldTiles, an arrayList of tiles to be swapped
+	 * @return an arrayList of tiles to replace the swapped tiles
+	 */
 	public ArrayList<Tile> swapTiles(ArrayList<Tile> oldTiles){
 		//Random Generator mimics randomness of drawing from bag
 		//Produces Random Index for arraylist
@@ -303,7 +328,7 @@ public class TileSystem {
 	/**
 	 * Translates string word into tiles to be placed on board
 	 * @param word
-	 * @return
+	 * @return an arrayList of Tiles representing a string word
 	 */
 	protected ArrayList<Tile> getTiles(String word){
 		ArrayList<Tile> wordTiles = new ArrayList<Tile>();
@@ -317,6 +342,10 @@ public class TileSystem {
 		return wordTiles;
 	}
 	
+	/**
+	 * Accessor for the player's hand
+	 * @return an arrayList of tiles representing the player's hand
+	 */
 	protected ArrayList<Tile> getHand(){
 		return hand;
 	}

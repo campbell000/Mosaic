@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 /**
  * Centeralized area for game logic.Communicates with gamecontroller.
+ * This class also contains many systems that make up the Mosaic game.
  * @author rachelfraczkowski
  *
  */
@@ -16,6 +17,9 @@ public class GameSystem {
 	
 	
 	//Initializing Game System
+	/**
+	 * Constructor for the game system
+	 */
 	protected GameSystem(){
 		
 		gameBoard = new Board();
@@ -28,6 +32,12 @@ public class GameSystem {
 	}
 
 	//Swaping Tiles
+	/**
+	 * Allows player to swap Tiles from their hand
+	 * @param hand, a string of the tiles wanting to swap 
+	 * (Ex. B, D, F is represented by the string "BDF")
+	 * @return an array of strings representing the new tiles.
+	 */
 	protected String[] swapTiles(String hand){
 		
 		String[] newHand = new String[hand.length()];
@@ -40,6 +50,10 @@ public class GameSystem {
 		return newHand;
 	}
 	//Doubling GameValue of System
+	/**
+	 * Allows player to double the value of their game
+	 * @return gameValue, an int representing the doubled value of the game
+	 */
 	protected int doubleGameValue(){
 		
 		gameValue = doubleSystem.doubleValue(gameValue);
@@ -48,10 +62,23 @@ public class GameSystem {
 	}
 	
 	//Return game value
+	/**
+	 * Allows player to access the value of their game
+	 * @return gameValue, the value of their game
+	 */
 	protected int getValue(){
 		return gameValue;
 	}
 	
+	/**
+	 * Allows player to place a word on the gameboard.
+	 * @param word, a string of the word created by their tiles
+	 * @param startR, starting row of the index where they would like to place the tiles
+	 * @param startC, starting column of the index where they would like to place the tiles
+	 * @param endC, ending column of the index where they would like their word to end
+	 * @param endR, ending row of the index where they would like their word to end
+	 * @return an int representing the score of the word placed, or -1 if not a word
+	 */
 	protected int placeWord(String word, int startR, int startC, int endC, int endR){
 		//Need string of words trying to be placed, starting indicies and ending indicies
 		if(dictionary.isAWord(word)){
@@ -65,19 +92,21 @@ public class GameSystem {
 		return -1;
 	}
 	
+	/**
+	 * Gets the score of the an array of spaces and the tiles they contain
+	 * @param spaces, an array of type Space, 
+	 * 		  usually the spaces where tiles have just been placed.
+	 * @return an int representing the score of the game.
+	 */
 	protected int getScore(ArrayList<Space> spaces){
 		
 		return scoring.calculateScore(spaces);
 	}
+	
+	
 	/**
-	 * Returns board of the game
-	 * @return
-	 */
-	protected Space[][] getBoard(){
-		return gameBoard.getBoard();
-	}
-	/**
-	 * Tear down method
+	 * Tear down method, which empties out all systems within the
+	 * gameSystem. 
 	 */
 	protected void tearDown(){
 		gameValue = 0;
@@ -89,15 +118,19 @@ public class GameSystem {
 	}
 
 	/**
-	 * description sentence <code></code>
-	 *
-	 * <p>description paragraph</p>
-	 *
-	 * @param
-	 * @param
-	 * @return
+	 * Accessor the gameBoard as an object
+	 * @return Object, the gameboard
 	 */
 	public Object getGameBoard() {
 		return this.gameBoard;
 	}
+	
+	/**
+	 * Returns board of the game
+	 * @return gameBoard, an Array of Spaces
+	 */
+	protected Space[][] getBoard(){
+		return gameBoard.getBoard();
+	}
+	
 }

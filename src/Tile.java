@@ -13,6 +13,11 @@ public class Tile {
 	
 	
 	//Assigns values at controller.
+	/**
+	 * Constructor of Tile object
+	 * @param v, the int value of the tile
+	 * @param l, the char letter of the tile
+	 */
 	protected Tile(int v, char l){
 		
 		value = v;
@@ -20,15 +25,26 @@ public class Tile {
 	}
 
 	//Accessors
+	/**
+	 * Returns the value of the tile
+	 * @return an int representing the value of the tile
+	 */
 	public int getValue(){
 		return value;
 	}
 	
+	/**
+	 * Returns the letter of the tile
+	 * @return a char representing the letter of the tile
+	 */
 	public char getLetter(){
 		return letter;
 	}
 	
 	//ToString
+	/**
+	 * ToString method for Tile
+	 */
 	public String toString(){
 		
 		return Character.toString(letter);

@@ -15,13 +15,9 @@ public class Board {
 		
 		
 	}
+	
 	/**
-	 * Places the spaces on the board object
-	 * @param board
-	 * @param tW
-	 * @param dW
-	 * @param tL
-	 * @param dL
+	 * Places the spaces on the board based on Scrabble
 	 */
 	private void placeSpaces(){
 		
@@ -127,25 +123,27 @@ public class Board {
 				
 		
 	}
+	
 	/**
 	 * Returns space at particular index
-	 * @param c
-	 * @param r
-	 * @return
+	 * @param c, or the column of the index
+	 * @param r, or the row of the index
+	 * @return a Space object at that index
 	 */
 	protected Space getSpace(int c, int r){
 		return gameBoard[c][r];
 	}
 	
+	
 	/**
 	 * Returns an arraylist of spaces for system to use starting with one coordinate, 
 	 * ending with another 
 	 * 
-	 * @param startC
-	 * @param startR
-	 * @param endC
-	 * @param endR
-	 * @return
+	 * @param startR, or the row of the starting index
+	 * @param startC, or the column of the starting index
+	 * @param endR, or the row for the ending index
+	 * @param endC, or the column for the ending index
+	 * @return an ArrayList of Spaces within the two indicies
 	 */
 	protected ArrayList<Space> getSpaces(int startR, int startC, int endR, int endC){
 		
@@ -180,12 +178,21 @@ public class Board {
 		return spaces;
 	}
 	/**
-	 * Get's gameboard
-	 * @return
+	 * Accessor for the gameboard
+	 * @return gameboard
 	 */
 	protected Space[][] getBoard(){
 		return gameBoard;
 	}
+	
+	/**
+	 * Places Tiles on the board
+	 * @param tiles, or an arraylist of the tiles to be placed
+	 * @param startR, or the row of the starting index
+	 * @param startC, or the column of the starting index
+	 * @param endR, or the row of the ending index
+	 * @param endC, or the column of the ending index
+	 */
 	protected void placeTiles(ArrayList<Tile> tiles, int startR, int startC, int endR, int endC){
 		//System.out.println("made it to placeTiles");
 		Space tileSpace = new Space();

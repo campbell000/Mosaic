@@ -14,8 +14,8 @@ public class ScoringSystem {
 	
 	/**
 	 * Calculates Score given an ArrayList of Spaces
-	 * @param spaces
-	 * @return
+	 * @param spaces, an arraylist of type Space
+	 * @return an int that represents the score of the tiles on these spaces
 	 */
 	protected int calculateScore(ArrayList<Space> spaces){
 		

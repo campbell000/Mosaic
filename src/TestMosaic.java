@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 
-
+/**
+ * Testing method for the game logic of the system
+ * Not in JUNit format but will be later.
+ * @author rachelfraczkowski
+ *
+ */
 public class TestMosaic {
 
 	public static void main(String[] args){
